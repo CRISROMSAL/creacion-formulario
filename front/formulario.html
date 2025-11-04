@@ -15,7 +15,7 @@
                         <h2 class="text-center mb-0">Registro de Asistentes</h2>
                     </div>
                     <div class="card-body"> <!-- Cuerpo de la tarjeta donde va el contenido principal -->
-                        <form action="procesarEvento.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate> <!-- Formulario que envía datos por POST a procesarEvento.php, con codificación para archivos. El class="needs-validation" le indica a Bootstrap que este formulario usará validación personalizada. Sin esta clase la validación visual de Bootstrap no funcionaria. novalidate desactiva la validación nativa del navegador permitiendo que bootstrap controle como se muestran los errores-->
+                        <form action="procesarEvento.php" method="POST" enctype="multipart/form-data"> <!-- Formulario que envía datos por POST a procesarEvento.php-->
                             
                             <!-- Sección 1: Información Personal -->
                             <h4 class="mb-3 text-primary">Información Personal</h4>
@@ -130,24 +130,24 @@
                             <!-- Sección 3: Información de Acceso -->
                             <h4 class="mb-3 text-primary">Información de Acceso</h4>
                             <div class="mb-3">
-                                <label for="username" class="form-label">Nombre de usuario</label>
-                                <input type="text" class="form-control" id="username" name="username" required>
+                                <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" required>
                                 <div class="invalid-feedback">
                                     Por favor, ingrese un nombre de usuario.
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <label for="Contraseña" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="contraseña" name="contraseña" required>
                                 <div class="invalid-feedback">
                                     Por favor, ingrese una contraseña.
                                 </div>
                             </div>
 
                             <div class="mb-4">
-                                <label for="password_confirm" class="form-label">Confirmación de contraseña</label>
-                                <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
+                                <label for="confirmaContraseña" class="form-label">Confirmación de contraseña</label>
+                                <input type="password" class="form-control" id="confirmaContraseña" name="confirmaContraseña" required>
                                 <div class="invalid-feedback">
                                     Por favor, confirme su contraseña.
                                 </div>
