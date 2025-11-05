@@ -15,14 +15,14 @@
                         <h2 class="text-center mb-0">Registro de Asistentes al Evento</h2>
                     </div>
                     <div class="card-body">
-                        <form action="procesar_evento.php" method="POST" enctype="multipart/form-data">
+                        <form action="procesar_evento.php" method="POST" enctype="multipart/form-data"><!-- Formulario que envía datos a través de método POST a procesar_evento.php, con carga para archivos -->
                             
                             <!-- Sección 1: Información Personal -->
                             <h4 class="mb-3 text-primary">Información Personal</h4>
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre completo</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" required>
-                                <div class="invalid-feedback">
+                                <div class="invalid-feedback"> <!-- Mensaje de error que se muestra si la validación falla -->
                                     Por favor, ingrese su nombre completo.
                                 </div>
                             </div>
@@ -54,8 +54,8 @@
                             <div class="mb-4">
                                 <label class="form-label">Género</label>
                                 <div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino" required>
+                                    <div class="form-check form-check-inline"> <!-- Contenedor de botón circular en línea horizontal -->
+                                        <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino" required> <!-- Es botón circular -->
                                         <label class="form-check-label" for="masculino">
                                             Masculino
                                         </label>
@@ -66,7 +66,7 @@
                                             Femenino
                                         </label>
                                     </div>
-                                    <div class="invalid-feedback d-block" id="genero-error" style="display: none !important;">
+                                    <div class="invalid-feedback d-block" id="genero-error" style="display: none !important;">  <!-- Mensaje de errorsi no se selecciona botón circular -->
                                         Por favor, seleccione su género.
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@
                                     <label class="form-check-label" for="terminos">
                                         ¿Acepta los términos y condiciones? (Obligatorio)
                                     </label>
-                                    <div class="invalid-feedback">
+                                    <div class="invalid-feedback"> <!--obliga a que siempre tenga que aceptar los terminos y lo marca como error-->
                                         Debe aceptar los términos y condiciones para continuar.
                                     </div>
                                 </div>
@@ -183,13 +183,14 @@
                             <!-- Sección 5: Encuesta Adicional -->
                             <h4 class="mb-3 text-primary">Encuesta Adicional</h4>
                             <div class="mb-3">
-                                <label for="calificacion" class="form-label">Calificación de eventos anteriores: <span id="valor_calificacion">5</span></label>
-                                <input type="range" class="form-range" min="1" max="10" step="1" id="calificacion" name="calificacion" value="5">
+                                <label for="calificacion" class="form-label">Calificación de eventos anteriores: <span id="valor_calificacion">5</span></label> <!-- Etiqueta con span para mostrar valor actual del deslizador -->
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="calificacion" name="calificacion" value="5"> <!-- Indica el valor minimo que puede tener el deslizador, 1, el maximo, 10, el incremento, de 1 en 1 y el valor por defecto que es 5 -->
                             </div>
 
                             <div class="mb-4">
                                 <label for="comentarios" class="form-label">Comentarios adicionales</label>
-                                <textarea class="form-control" id="comentarios" name="comentarios" rows="4" placeholder="Escriba sus comentarios aquí..."></textarea>
+                                <textarea class="form-control" id="comentarios" name="comentarios" rows="4" placeholder="Escriba sus comentarios aquí..."></textarea> <!-- Textarea para texto multilínea con 4 filas visibles y placeholder -->
+                            </div>
                             </div>
 
                             <hr class="my-4">
