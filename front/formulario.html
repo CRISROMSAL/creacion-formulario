@@ -230,14 +230,14 @@
             'use strict'; //No sería necesario, pero lo ponemos como un modo estricto de JavaScript para evitar errores comunes, por ejemplo, no permite usar variables sin declararlas con const, let o var.
             const forms = document.querySelectorAll('.needs-validation');
             
-            Array.from(forms).forEach(function(form) {
+            Array.from(forms).forEach(function(form) { //por cada formulario encontrado
                 form.addEventListener('submit', function(event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
+                    if (!form.checkValidity()) { //Si hay errores 
+                        event.preventDefault(); //cancela el envio, no envía el formulario
+                        event.stopPropagation(); //Detiene la propagacion a los elementos padre
                     }
-                    form.classList.add('was-validated');
-                }, false);
+                    form.classList.add('was-validated'); //añade la clasepara mostrar mensajes de error y los bordes rojo
+                });
             });
         })();
     </script>
