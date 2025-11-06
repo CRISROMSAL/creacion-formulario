@@ -225,8 +225,9 @@
         });
 
         // Validación de Bootstrap
+        //Sin esto el formulario se enviaria aunque no estuviera bien rellenado. No aparecerían los mensajes de error con el estilo de Bootstrap.
         (function() {
-            'use strict';
+            'use strict'; //No sería necesario, pero lo ponemos como un modo estricto de JavaScript para evitar errores comunes, por ejemplo, no permite usar variables sin declararlas con const, let o var.
             const forms = document.querySelectorAll('.needs-validation');
             
             Array.from(forms).forEach(function(form) {
