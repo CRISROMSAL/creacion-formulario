@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Asistentes al Evento</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container my-5">
@@ -19,7 +19,7 @@
                             
                             <!-- Sección 1: Información Personal -->
                             <h4 class="mb-3 text-primary">Información Personal</h4>
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="nombre" class="form-label">Nombre completo</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 <div class="invalid-feedback"> <!-- Mensaje de error que se muestra si la validación falla -->
@@ -27,7 +27,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="email" class="form-label">Correo electrónico</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                                 <div class="invalid-feedback">
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="telefono" class="form-label">Número de teléfono</label>
                                 <input type="tel" class="form-control" id="telefono" name="telefono" required>
                                 <div class="invalid-feedback">
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
                                 <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
                                 <div class="invalid-feedback">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4">
+                            <div class="form-group">
                                 <label class="form-label">Género</label>
                                 <div>
                                     <div class="form-check form-check-inline"> <!-- Contenedor de botón circular en línea horizontal -->
@@ -76,7 +76,7 @@
 
                             <!-- Sección 2: Información del Evento -->
                             <h4 class="mb-3 text-primary">Información del Evento</h4>
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="fecha_evento" class="form-label">Fecha del evento</label>
                                 <input type="date" class="form-control" id="fecha_evento" name="fecha_evento" required>
                                 <div class="invalid-feedback">
@@ -84,9 +84,9 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="tipo_entrada" class="form-label">Tipo de entrada</label>
-                                <select class="form-select" id="tipo_entrada" name="tipo_entrada" required>
+                                <select class="form-control" id="tipo_entrada" name="tipo_entrada" required>
                                     <option value="" selected disabled>Seleccione una opción</option>
                                     <option value="General">General</option>
                                     <option value="VIP">VIP</option>
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4">
+                            <div class="form-group">
                                 <label class="form-label">Preferencias de comida</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="comida[]" value="Vegetariano" id="vegetariano">
@@ -129,7 +129,7 @@
 
                             <!-- Sección 3: Información de Acceso -->
                             <h4 class="mb-3 text-primary">Información de Acceso</h4>
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="nombre-usuario" class="form-label">Nombre de usuario</label>
                                 <input type="text" class="form-control" id="nombre-usuario" name="nombre-usuario" required>
                                 <div class="invalid-feedback">
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="contraseña" class="form-label">Contraseña</label>
                                 <input type="password" class="form-control" id="contraseña" name="contraseña" required>
                                 <div class="invalid-feedback">
@@ -145,7 +145,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4">
+                            <div class="form-group">
                                 <label for="confirmacion-contraseña" class="form-label">Confirmación de contraseña</label>
                                 <input type="password" class="form-control" id="confirmacion-contraseña" name="confirmacion-contraseña" required>
                                 <div class="invalid-feedback">
@@ -157,7 +157,7 @@
 
                             <!-- Sección 4: Preferencias de Contacto -->
                             <h4 class="mb-3 text-primary">Preferencias de Contacto</h4>
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="notificaciones" value="Si" id="notificaciones">
                                     <label class="form-check-label" for="notificaciones">
@@ -166,7 +166,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4">
+                            <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="terminos" value="Aceptado" id="terminos" required>
                                     <label class="form-check-label" for="terminos">
@@ -182,22 +182,22 @@
 
                             <!-- Sección 5: Encuesta Adicional -->
                             <h4 class="mb-3 text-primary">Encuesta Adicional</h4>
-                            <div class="mb-3">
+                            <div class="form-group">
                                 <label for="calificacion" class="form-label">Calificación de eventos anteriores: <span id="valor_calificacion">5</span></label> <!-- Etiqueta con span para mostrar valor actual del deslizador -->
                                 <input type="range" class="form-range" min="1" max="10" step="1" id="calificacion" name="calificacion" value="5"> <!-- Indica el valor minimo que puede tener el deslizador, 1, el maximo, 10, el incremento, de 1 en 1 y el valor por defecto que es 5 -->
                             </div>
 
-                            <div class="mb-4">
+                            <div class="form-group">
                                 <label for="comentarios" class="form-label">Comentarios adicionales</label>
                                 <textarea class="form-control" id="comentarios" name="comentarios" rows="6" placeholder="Escriba sus comentarios aquí..."></textarea> <!-- Textarea para texto multilínea con 6 filas visibles y placeholder -->
                             </div>
-                            </div>
+                    </div>
 
                             <hr class="my-4">
 
                             <!-- Sección 6: Adjuntar archivo -->
                             <h4 class="mb-3 text-primary">Documentos</h4>
-                            <div class="mb-4">
+                            <div class="form-group">
                                 <label for="archivo" class="form-label">Adjuntar un archivo</label>
                                 <input class="form-control" type="file" id="archivo" name="archivo">
                             </div>
@@ -207,13 +207,14 @@
                                 <button class="btn btn-primary btn-lg" type="submit">Enviar Registro</button>
                             </div>
                         </form>
-                    </div>
-                </div>
+                </div>   
             </div>
         </div>
     </div>
+</div>
+    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Actualizar valor del deslizador
         // Sin esto el slider funcionaria, pero no se vería actualizado el número mientras lo movemos por el deslizador.
