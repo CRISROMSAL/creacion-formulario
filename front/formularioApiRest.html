@@ -1,0 +1,287 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Registro de Asistentes al Evento</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Enlace a la hoja de estilos de Bootstrap 4.6 -->
+</head>
+<body> 
+    <div class="container my-5"> 
+        <div class="row justify-content-center"> 
+            <div class="col-lg-8"> 
+                <div class="card shadow"> 
+                    <div class="card-header bg-primary text-white"> 
+                        <h2 class="text-center mb-0">Registro de Asistentes al Evento</h2> 
+                    </div>
+                    <div class="card-body"> 
+                        <form id="formularioEvento" enctype="multipart/form-data" class="needs-validation" novalidate> <!-- Formulario con id para JavaScript, clase para validación Bootstrap, novalidate desactiva validación nativa, ESTA ES LA PRIMERA DIFERENCIA CON RESPECTO AL PRIMER EJERCICIO -->
+                            
+                            <h4 class="mb-3 text-primary">Información Personal</h4> 
+                            <div class="form-group"> 
+                                <label for="nombre">Nombre completo</label> 
+                                <input type="text" class="form-control" id="nombre" name="nombre" required> 
+                                <div class="invalid-feedback">Por favor, ingrese su nombre completo.</div> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label for="email">Correo electrónico</label> 
+                                <input type="email" class="form-control" id="email" name="email" required> 
+                                <div class="invalid-feedback">Por favor, ingrese un correo electrónico válido.</div> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label for="telefono">Número de teléfono</label> 
+                                <input type="tel" class="form-control" id="telefono" name="telefono" required> 
+                                <div class="invalid-feedback">Por favor, ingrese su número de teléfono.</div> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label for="fecha_nacimiento">Fecha de nacimiento</label> 
+                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required> 
+                                <div class="invalid-feedback">Por favor, seleccione su fecha de nacimiento.</div> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label>Género</label> 
+                                <div> 
+                                    <div class="form-check form-check-inline"> 
+                                        <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino" required> 
+                                        <label class="form-check-label" for="masculino">Masculino</label> 
+                                    </div>
+                                    <div class="form-check form-check-inline"> 
+                                        <input class="form-check-input" type="radio" name="genero" id="femenino" value="Femenino" required> 
+                                        <label class="form-check-label" for="femenino">Femenino</label> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-4"> 
+
+                            <h4 class="mb-3 text-primary">Información del Evento</h4> 
+                            <div class="form-group"> 
+                                <label for="fecha_evento">Fecha del evento</label> 
+                                <input type="date" class="form-control" id="fecha_evento" name="fecha_evento" required> 
+                                <div class="invalid-feedback">Por favor, seleccione la fecha del evento.</div> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label for="tipo_entrada">Tipo de entrada</label> <!-- Etiqueta para el menú desplegable -->
+                                <select class="form-control" id="tipo_entrada" name="tipo_entrada" required> <!-- Select/desplegable con estilos de Bootstrap y validación requerida -->
+                                    <option value="" selected disabled>Seleccione una opción</option> <!-- Opción inicial vacía, seleccionada por defecto y deshabilitada para forzar selección -->
+                                    <option value="General">General</option> <!-- Opción con value que se enviará al servidor -->
+                                    <option value="VIP">VIP</option> 
+                                    <option value="Estudiante">Estudiante</option> 
+                                </select>
+                                <div class="invalid-feedback">Por favor, seleccione un tipo de entrada.</div> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label>Preferencias de comida</label> 
+                                <div class="form-check"> 
+                                    <input class="form-check-input" type="checkbox" name="comida[]" value="Vegetariano" id="vegetariano"> <!-- Checkbox con name[] para enviar array al servidor -->
+                                    <label class="form-check-label" for="vegetariano">Vegetariano</label> <!-- Etiqueta clickeable -->
+                                </div>
+                                <div class="form-check"> 
+                                    <input class="form-check-input" type="checkbox" name="comida[]" value="Vegano" id="vegano"> 
+                                    <label class="form-check-label" for="vegano">Vegano</label> 
+                                </div>
+                                <div class="form-check"> 
+                                    <input class="form-check-input" type="checkbox" name="comida[]" value="Sin gluten" id="sin_gluten"> 
+                                    <label class="form-check-label" for="sin_gluten">Sin gluten</label> 
+                                </div>
+                                <div class="form-check"> 
+                                    <input class="form-check-input" type="checkbox" name="comida[]" value="Sin preferencias" id="sin_preferencias"> 
+                                    <label class="form-check-label" for="sin_preferencias">Sin preferencias</label> 
+                                </div>
+                            </div>
+
+                            <hr class="my-4"> 
+
+                            <h4 class="mb-3 text-primary">Información de Acceso</h4> 
+                            <div class="form-group"> 
+                                <label for="nombre_usuario">Nombre de usuario</label> 
+                                <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" required> 
+                                <div class="invalid-feedback">Por favor, ingrese un nombre de usuario.</div> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label for="contraseña">Contraseña</label> 
+                                <input type="password" class="form-control" id="contraseña" name="contraseña" required> 
+                                <div class="invalid-feedback">Por favor, ingrese una contraseña.</div> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label for="confirmacion_contraseña">Confirmación de contraseña</label> 
+                                <input type="password" class="form-control" id="confirmacion_contraseña" name="confirmacion_contraseña" required> 
+                                <div class="invalid-feedback">Por favor, confirme su contraseña.</div> 
+                            </div>
+
+                            <hr class="my-4"> 
+
+                            <h4 class="mb-3 text-primary">Preferencias de Contacto</h4> 
+                            <div class="form-group"> 
+                                <div class="form-check"> 
+                                    <input class="form-check-input" type="checkbox" name="notificaciones" value="Si" id="notificaciones"> 
+                                    <label class="form-check-label" for="notificaciones"> 
+                                        ¿Desea recibir notificaciones por correo electrónico?
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group"> 
+                                <div class="form-check"> 
+                                    <input class="form-check-input" type="checkbox" name="terminos" value="Aceptado" id="terminos" required> 
+                                    <label class="form-check-label" for="terminos"> 
+                                        ¿Acepta los términos y condiciones? (Obligatorio)
+                                    </label>
+                                    <div class="invalid-feedback">Debe aceptar los términos y condiciones.</div> 
+                                </div>
+                            </div>
+
+                            <hr class="my-4"> 
+
+                            <h4 class="mb-3 text-primary">Encuesta Adicional</h4> 
+                            <div class="form-group"> 
+                                <label for="calificacion">Calificación de eventos anteriores: <span id="valor_calificacion">5</span></label> 
+                                <input type="range" class="form-range" min="1" max="10" step="1" id="calificacion" name="calificacion" value="5"> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label for="comentarios">Comentarios adicionales</label> 
+                                <textarea class="form-control" id="comentarios" name="comentarios" rows="6"></textarea> 
+                            </div>
+
+                            <hr class="my-4"> 
+
+                            <h4 class="mb-3 text-primary">Documentos</h4> 
+                            <div class="form-group"> 
+                                <label for="archivo">Adjuntar un archivo</label> 
+                                <input class="form-control" type="file" id="archivo" name="archivo"> 
+                            </div>
+
+                            <div class="d-grid"> 
+                                <button class="btn btn-primary btn-lg" type="submit">Enviar Registro</button> 
+                            </div>
+                        </form> 
+
+                        <div id="resultado" class="mt-4"></div> <!-- Div vacío donde se mostrará el resultado de la API REST-->
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> <!-- Enlace a los scripts de JavaScript de Bootstrap 4 -->
+    <script> <!-- Apertura de bloque de script personalizado -->
+        const entradaRango = document.getElementById('calificacion'); // Obtiene el elemento entrada del rango por su id
+        const valorRango = document.getElementById('valor_calificacion'); // Obtiene el span donde se mostrará el valor
+        
+        entradaRango.addEventListener('input', function() { // Cuando el usuario mueva el deslizador ejecuta el codigo
+            valorRango.textContent = this.value; // Actualiza el contenido del span con el valor actual del deslizador
+        });
+
+        //Apartir de aquí cambia con el formulario.html
+
+        //Esto que viene ahora controla que el formulario esté bien completado antes de enviarlo, esto es desde el navegaor
+
+        const form = document.getElementById('formularioEvento'); // Obtiene el formulario entero por su id y lo almacena en la variable form
+        
+        form.addEventListener('submit', function(event) { // Cuando el formulario se envie ejecuta esta función
+            event.preventDefault(); // Previene el envío tradicional del formulario, que es una recarga de pagina, para hacer envío con fetch
+            
+            if (!form.checkValidity()) { // Cuando no sean validos todos los campos
+                event.stopPropagation(); // Detiene la propagación del evento
+                form.classList.add('was-validated'); // Agrega clase que activa los estilos de validación de Bootstrap, esto hace que le salga al usuario marcas que indican que campos estan mal y por qué
+                return; // Sale de la función sin enviar, no se envía nada porque el formulario no es valido
+            }
+
+
+
+            
+            const formData = new FormData(form); // Crea objeto FormData con todos los datos del formulario 
+            
+            fetch('../back/procesarEventoApiRest.php', { // Hace petición fetch a la API REST
+                method: 'POST', // Método HTTP POST
+                body: formData // Envía el FormData en el cuerpo de la petición
+            })
+            .then(response => response.json()) // Convierte la respuesta del servidor a JSON
+            .then(data => { // Función que se ejecuta cuando se recibe la respuesta JSON
+                const resultado = document.getElementById('resultado'); // Obtiene el div donde mostrar el resultado
+                
+                if (data.success) { // Si la respuesta indica éxito
+                    // Crea HTML con una plantilla literal para mostrar el recibo
+                    resultado.innerHTML = `
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h4>Registro Completado</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5>Información Personal</h5>
+                                <p><strong>Nombre:</strong> ${data.datos.nombre}</p>
+                                <p><strong>Email:</strong> ${data.datos.email}</p>
+                                <p><strong>Teléfono:</strong> ${data.datos.telefono}</p>
+                                <p><strong>Fecha de nacimiento:</strong> ${data.datos.fecha_nacimiento}</p>
+                                <p><strong>Género:</strong> ${data.datos.genero}</p>
+                                
+                                <hr>
+                                <h5>Información del Evento</h5>
+                                <p><strong>Fecha del evento:</strong> ${data.datos.fecha_evento}</p>
+                                <p><strong>Tipo de entrada:</strong> ${data.datos.tipo_entrada}</p>
+                                <p><strong>Preferencias de comida:</strong> ${data.datos.comida}</p>
+                                
+                                <hr>
+                                <h5>Información de Acceso</h5>
+                                <p><strong>Nombre de usuario:</strong> ${data.datos.nombre_usuario}</p>
+                                <p><strong>Contraseña:</strong> ********</p>
+                                
+                                <hr>
+                                <h5>Preferencias de Contacto</h5>
+                                <p><strong>Notificaciones:</strong> ${data.datos.notificaciones}</p>
+                                <p><strong>Términos:</strong> ${data.datos.terminos}</p>
+                                
+                                <hr>
+                                <h5>Encuesta</h5>
+                                <p><strong>Calificación:</strong> ${data.datos.calificacion} / 10</p>
+                                <p><strong>Comentarios:</strong> ${data.datos.comentarios}</p>
+                                
+                                <hr>
+                                <h5>Archivo</h5>
+                                <p><strong>Archivo:</strong> ${data.datos.archivo}</p>
+                            </div>
+                        </div>
+                    `; // Cierre del template literal
+                    form.reset(); // Resetea el formulario limpiando todos los campos
+                    form.classList.remove('was-validated'); // Quita la clase de validación
+                    valorRango.textContent = '5'; // Resetea el valor mostrado del range a 5
+
+
+                // Esto muestra los errores que vienen del servidor después de intentar guardar los datos, por ejemplo falta un campo en la base de datos, hay datos duplicados, no se pudo guardar la información...
+                } else { // Si la respuesta indica error
+                    let erroresHTML = '<div class="alert alert-danger"><h4>Errores:</h4><ul>'; // Inicia HTML para mostrar errores
+                    data.errores.forEach(error => { // Recorre cada error del array
+                        erroresHTML += `<li>${error}</li>`; // Añade cada error como elemento de lista
+                    });
+                    erroresHTML += '</ul></div>'; // Cierra el HTML de errores
+                    resultado.innerHTML = erroresHTML; // Muestra los errores en el div resultado
+                }
+            })
+            .catch(error => { // Se ejecuta si hay error en la petición fetch
+                document.getElementById('resultado').innerHTML = ` // Muestra mensaje de error de conexión
+                    <div class="alert alert-danger">
+                        <h4>Error</h4>
+                        <p>No se pudo conectar con el servidor.</p>
+                    </div>
+                `;
+            });
+        });
+    </script> 
+</body> 
+</html> 
